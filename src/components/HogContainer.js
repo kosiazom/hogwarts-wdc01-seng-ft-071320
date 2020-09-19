@@ -7,9 +7,9 @@ class HogContainer extends React.Component {
   render() {
     //   console.log(this.props)
     return (
-      <div  >
+      <div >
             
-            {this.props.hogsArray.map(hog => <HogTile hog={hog} displayDetails={this.props.displayDetails}/>)}
+            {this.props.hogsArray.map(hog => <HogTile hog={hog} displayDetails={this.props.displayDetails}  hideHogs={this.props.hideHogs}/>)}
       </div>
     );
   }

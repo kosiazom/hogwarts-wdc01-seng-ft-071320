@@ -11,7 +11,7 @@ class App extends Component {
         super()
         this.state = {
             // hogsArray give each hog a click key
-            hogsArray: hogsArray.map(hog => { return {...hog, clicked: false} })
+            hogsArray: hogsArray.map(hog => { return {...hog, clicked: false, hidden: false} })
         }
     }
    
@@ -52,6 +52,14 @@ class App extends Component {
     
     }
 
+    hideHogs = (clickedHog) => {
+      this.setState({
+          hogsArray: this.state.hogsArray.map(hog => hog === clickedHog ? 
+            {...hog, hidden: true} : hog)
+        
+      })
+    }
+
 
   render() {
     return (
@@ -60,7 +68,8 @@ class App extends Component {
         <Filter filterHogs={this.filterHogs}/>
         <br />
         <br />
-        <HogContainer hogsArray={this.state.hogsArray} displayDetails={this.displayDetails} />
+        <HogContainer hogsArray={this.state.hogsArray} displayDetails={this.displayDetails}
+        hideHogs={this.hideHogs} />
         
       </div>
     );

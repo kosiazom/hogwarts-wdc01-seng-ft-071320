@@ -26,9 +26,11 @@ return(
 <div onClick={ () => this.props.displayDetails(this.props.hog)}>
     <h3>{this.props.hog.name}</h3>
     <img src={require(`../hog-imgs/${pigImage}`)} />
-
+    
     {this.props.hog.clicked ?
-    <HogDetail hog={this.props.hog}/> : null}
+    <HogDetail hog={this.props.hog} hideHogs={this.props.hideHogs}/> : null}
+   
+    <button onClick={() => this.props.hideHogs(this.props.hog)}>Hide Me!</button>
 </div>)
 }
 }
